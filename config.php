@@ -1,9 +1,9 @@
 <?php
 // Database configuration
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'artbookcource');
+define('DB_HOST', 'localhost:3306');
+define('DB_USER', 'artbooks_artbooks');
+define('DB_PASS', 'Password@Yasith');
+define('DB_NAME', 'artbooks_courses');
 // define('SITE_URL', 'http://localhost/artbook');
 
 // Google OAuth configuration
