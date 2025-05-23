@@ -1,0 +1,36 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# ----------------------------------------
+# Remove .php extension from URLs
+# (e.g., /courses → /courses.php)
+# ----------------------------------------
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)/?$ $1.php [L]
+
+# ----------------------------------------
+# Clean URLs for /api/ calls (e.g., /api/get_courses → get_courses.php)
+# ----------------------------------------
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/([a-zA-Z0-9_-]+)$ api/$1.php [L,QSA]
+
+# ----------------------------------------
+# CORS headers for frontend API access
+# ----------------------------------------
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "https://dev.artbooks.lk"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# ----------------------------------------
+# Preflight OPTIONS requests (for fetch POST)
+# ----------------------------------------
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# ----------------------------------------
+# Optional: custom 404 error page
+# ----------------------------------------
+ErrorDocument 404 /404.html
