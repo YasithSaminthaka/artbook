@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
-            <img src="images/logo.png" alt="ArtBooks Logo" class="logo-img">
+            <img src="images/Logo.png" alt="ArtBooks Logo" class="logo-img">
             <span> ArtBooks</span>
         </a>
 
