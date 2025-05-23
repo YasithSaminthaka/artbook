@@ -9,7 +9,6 @@ require_once '../URI.php';
 
         async function submitData() {
             const queryString = window.location.search;
-            const targetUrl = `http://localhost/artbook/api/google_callback.php${queryString}`;
             const targetUrl = `${SITE_URL}/api/google_callback.php${queryString}`;
 
             try {
@@ -32,15 +31,12 @@ require_once '../URI.php';
                         if (data.name) localStorage.setItem('ser_name', data.name);
                         if (data.email) localStorage.setItem('artbook_user_email', data.email);
                     }
-                    window.location.href = 'http://localhost/artbook/index.php';
                     window.location.href = "<?= SITE_URL ?>/index.php";
 
                 } else {
-                    window.location.href = 'http://localhost/artbook/index.php';
                     window.location.href = "<?= SITE_URL ?>/index.php";
                 }
             } catch (error) {
-                window.location.href = 'http://localhost/artbook/index.php';
                 window.location.href = "<?= SITE_URL ?>/index.php";
             }
         }
