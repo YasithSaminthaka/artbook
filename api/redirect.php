@@ -1,3 +1,6 @@
+<?php 
+
+require_once '../URI.php';
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         submitData();
